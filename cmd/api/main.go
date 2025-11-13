@@ -39,9 +39,9 @@ func main() {
 		port = "10000"
 	}
 
-	mongoURI := os.Getenv("MONGO_CONECTION")
+	mongoURI := os.Getenv("MONGO_CONNECTION")
 	if mongoURI == "" {
-		log.Fatal("MONGO_CONECTION is empty")
+		log.Fatal("MONGO_CONNECTION is empty")
 	}
 	
 	db, err := data.NewMongo(mongoURI)
