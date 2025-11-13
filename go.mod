@@ -1,6 +1,6 @@
 module github.com/dangdinh2405/web-note-work
 
-go 1.25.3
+go 1.25.0
 
 require (
 	github.com/bytedance/sonic v1.14.0 // indirect
