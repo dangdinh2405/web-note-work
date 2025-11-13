@@ -16,6 +16,7 @@ import (
 func main() {
 	godotenv.Load()
 
+
 	gin.SetMode(gin.ReleaseMode) 
 
 	// Production:
@@ -34,6 +35,9 @@ func main() {
 	}))
 
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5001"
+	}
 	
 	db, err := data.NewMongo(os.Getenv("MONGO_CONECTION"))
 	if err != nil {
@@ -41,6 +45,9 @@ func main() {
 	}
 
 	dbName := os.Getenv("MONGO_DB_NAME")
+	// if dbName == "" {
+	// 	dbName = "tasks"
+	// }
 
 	http.TasksRoutes(r, db, dbName)
 	
